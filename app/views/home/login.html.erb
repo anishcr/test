@@ -1,0 +1,45 @@
+<%= form_tag 'login' do %>
+  <% if flash[:alert] %>
+    <p id="notice" ><%= flash[:alert] %></p>
+  <% end %>
+    <div id="holder">
+      <div id="login_section">
+        <div id="right">
+          <div id="loginsection">
+            <table width="99%" border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td width="30%"><h1>Login</h1></td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><strong>Email</strong></td>
+                <td><%= text_field_tag :email, params[:email] %></td>
+              </tr>
+              <tr>
+                <td><strong>Password</strong></td>
+                <td><%= password_field_tag :password, params[:password] %></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><%= submit_tag "Login" %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Energy Consumption');
+        data.addColumn('number', 'kWH');
+        <%= "data.addRows(#{@devices.length});" %>
+        <% i = 0 %>
+        <% @devices.each do |device| %>
+          <%= "data.setValue(#{i}, 0, '#{device.name} (#{@latest_power_map[device.id]} kWh)');" %>
+          <%= "data.setValue(#{i}, 1, #{@latest_power_map[device.id]});" %>
+          <% i = i + 1 %>
+        <% end %>
+        var chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+        chart.draw(data, {width: 800, height: 300, title: 'Energy Consumption in kWh for last 24 hours'});
+      }
+    </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+
+       <% num_days = "#{(@to_date - @from_date).to_i + 1}" %>
+
+        <% @devices.each do |device| %>
+          <%= "data.addColumn('number', '#{device.name}');" %>
+        <% end %>
+        <%= "data.addRows(#{num_days});" %>
+        <% i = 0 %>
+        <% @from_date.upto(@to_date) do |d| %>
+          <% day = d.strftime("%d/%b") %>
+          <%= "data.setValue(#{i}, 0, '#{day}');" %>
+          <% total_kwh = 0.0 %>
+          <% total_cost = 0.0 %>
+          <% j = 1 %>
+          <% @devices.each do |device| %>
+            <% kwh = @value_map[device.id][d]; total_kwh = total_kwh + kwh %>
+            <% cost = (kwh * 0.10).round(2) %>
+            <%= "data.setValue(#{i}, #{j}, #{kwh});" %>
+            <%= "data.setFormattedValue(#{i}, #{j}, '#{kwh}kWh ($#{cost})');" %>
+            <% j = j + 1%>
+          <% end %>
+          <% total_cost = (total_kwh * 0.10).round(2) %>
+          <%= "data.setFormattedValue(#{i}, 0, '#{day}($#{total_cost})');" %>
+          <% i = i + 1 %>
+        <% end %>
+
+          var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
+          <%= "chart.draw(data, {width: 1000, height: 400, title: 'Energy consumption for the last #{num_days} days'," %>
+                            hAxis: {title: 'Date', titleTextStyle: {color: 'black', fontSize: 16}},
+                            vAxes:[{title:'kWh', titleTextStyle: {color: 'black', fontSize: 16}, textStyle:{color: 'black'}}]
+                           });
+        }
+      </script>
+
+
+  </head>
+
+  <body>
+    <div id="pie_chart_div"></div>
+    <div id="column_chart_div"></div>
+  </body>
+</html>

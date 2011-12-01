@@ -1,0 +1,102 @@
+<% if flash[:alert] %>
+  <p id="notice" ><%= flash[:alert] %></p>
+  <% return %>
+<% end %>
+
+<% from_date = "#{@from_date.month}/#{@from_date.day}/#{@from_date.year}" %>
+<% to_date   = "#{@to_date.month}/#{@to_date.day}/#{@to_date.year}" %>
+<div class="right">
+<%= form_tag 'run_report' do %>
+  <div id="section_header_holder">
+    <div class="left">
+      <h2></h2>
+    </div>
+  </div>
+  <div id="holder">
+    <div class="left_section">
+      <div class="form_container">
+        <div class="left_section">Select Device(s)</div>
+        <div class="right_section">
+          <%= select_tag("devices", options_from_collection_for_select(@devices, "modbus_device_num", "name", { :selected => @selected_device_num }), :multiple => true, :style => "width:150px;") %>
+        </div>
+      </div>
+      <div class="form_container">
+        <div class="left_section">Date Range</div>
+        <div class="right_section">
+          <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <tr>
+              <td width="15%"><strong>From</strong></td>
+              <td width="15%">
+                <% params[:from_date] = from_date %>
+                <%= text_field_tag :from_date, params[:from_date], :readonly => true %>
+              </td>
+              <td width="20%"></td>
+              <td width="15%"><strong>To</strong></td>
+              <td width="15%">
+                <% params[:to_date] = to_date %>
+                <%= text_field_tag :to_date, params[:to_date], :readonly => true %>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="form_container">
+        <div class="left_section">&nbsp;</div>
+        <div class="right">
+          <%= submit_tag "Create Report", :class => "formButton_create_account" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+  <div id="section_holder">
+    <div id="holder" style="padding:5px;font-size:14px; color:#2c69ad;">Energy Consumption Report <span style="font-size:11px; color:#000;">(<%= link_to 'Export as CSV', :action => 'export', :from_date => from_date, :to_date => to_date, :devices => @selected_device_num %>)</span>
+
+    </div>
+      <div class="table-data">
+        <div class="table-data-content">
+          <ul class="table-data-header">
+            <li class="column-6">Date</li>
+            <li class="column-8">Device Name</li>
+            <li class="column-6">Consumption (kWh)</li>
+            <li class="column-3">Cost ($)<li>
+          </ul>
+          <% total_kwh = nil %>
+          <% total_cost = nil %>
+          <% @last_day_time.each do |day| %>
+            <% @selected_devices.each do |device| %>
+              <% val = @pwr_demand_day_map[device.id][day] %>
+              <% if (val != nil) %>
+                <% val_kWh = val %>
+                <% val_cost = val / 10.0 %>
+
+          <ul class="table-data-row">
+            <li class="column-6"><%= "#{day.strftime('%d/%b/%Y')}" %></li>
+            <li class="column-8"><%= device[:name] %></li>
+            <li class="column-6"><%= "#{val_kWh}" %></li>
+            <li class="column-3"><%= "#{val_cost.round(2)}" %><li>
+          </ul>
+                <% if (total_kwh == nil) %>
+                  <% total_kwh  = val_kWh %>
+                  <% total_cost = val_cost %>
+                <% else %>
+                  <% total_kwh  = total_kwh + val_kWh %>
+                  <% total_cost = total_cost + val_cost %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+          <% if (total_kwh != nil) %>
+
+          <ul class="table-data-header">
+            <li class="column-6">TOTAL</li>
+            <li class="column-8"></li>
+            <li class="column-6"><%= "#{total_kwh}" %></li>
+            <li class="column-3"><%= "#{total_cost.round(2)}" %><li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

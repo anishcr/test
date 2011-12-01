@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Echoic</title>
+  <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+  <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+
+<script>
+	$(function() {
+		$( "#from_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+		$( "#to_date" ).datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+	});
+
+</script>
+
+  <%= csrf_meta_tags %>
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+    $( "#datepicker1" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+</script>
+</head>
+<body>
+<!--Content Section Starts-->
+<div id="content_wraper">
+  <!--Header Section Starts-->
+  <div id="header_section">
+    <div id="holder">
+      <div id="logo_holder">
+        <%= image_tag("logo.png") %>
+      </div>
+      <div id="header_information">
+      <% if @user_name != nil %>
+        <%= "Welcome: #{@user_name} |" -%>
+        <%= link_to "Logout", :controller => "home", :action => "logout" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+  <!--Header Section Ends-->
+  <div id="content_holder_innerpage">
+    <% if @user_name != nil %>
+      <div class="left">
+        <div id="navcontainer">
+      	  <ul class="nav">
+            <li>
+              <%= link_to "Dashboard", :controller => "home", :action => "charts" %>
+            </li>
+            <li>
+              <%= link_to "Energy", :controller => "home", :action => "energy" %>
+            </li>
+            <li>
+              <%= link_to "Power Factor", :controller => "home", :action => "power_factor" %>
+            </li>
+            <li>
+              <%= link_to "Power Demand", :controller => "home", :action => "power_demand" %>
+            </li>
+            <li>
+              <%= link_to "Energy Report", :controller => "home", :action => "run_report" %>
+            </li>
+          </ul>
+        </div>
+        <div class="sub-nav">
+          <ul class="total">
+            <li><a href="javascript:;">How to?</a></li>
+            <li><a href="javascript:;">Tips</a></li>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+</div>
+<!--Content Section Ends-->
+<!--Footer Section Starts-->
+<div>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+</div>
+<div id="footer">
+  <div id="footer_holder"> ©2011 ECHOIC Analytics </div>
+</div>
+<!--Footer Section Ends-->
+
+</body>
+</html>

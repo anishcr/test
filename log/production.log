@@ -1,0 +1,270 @@
+
+
+Started POST "/home/acquisuite" for 67.198.27.160 at 2011-11-30 15:53:04 +0530
+  Processing by HomeController#acquisuite as HTML
+  Parameters: {"SENDDATATRACE"=>"YES", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"[FILTERED]", "LOOPNAME"=>"001EC60009D2", "UPTIME"=>"724722", "PERCENTBLOCKSINUSE"=>"20", "PERCENTINODESINUSE"=>"0", "UPLOADATTEMPT"=>"1", "ACQUISUITEVERSION"=>"v02.11.0814", "USRVERSION"=>"v02.11.0814", "ROOTVERSION"=>"v02.11.0814", "KERNELVERSION"=>"2.6.28.10-r1.89--g39f0aec", "MODE"=>"STATUS"}
+acquisuite() called with params {"SENDDATATRACE"=>"YES", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"", "LOOPNAME"=>"001EC60009D2", "UPTIME"=>"724722", "PERCENTBLOCKSINUSE"=>"20", "PERCENTINODESINUSE"=>"0", "UPLOADATTEMPT"=>"1", "ACQUISUITEVERSION"=>"v02.11.0814", "USRVERSION"=>"v02.11.0814", "ROOTVERSION"=>"v02.11.0814", "KERNELVERSION"=>"2.6.28.10-r1.89--g39f0aec", "MODE"=>"STATUS", "controller"=>"home", "action"=>"acquisuite"}
+["SENDDATATRACE", "YES"]
+["SERIALNUMBER", "001EC60009D2"]
+["PASSWORD", ""]
+["LOOPNAME", "001EC60009D2"]
+["UPTIME", "724722"]
+["PERCENTBLOCKSINUSE", "20"]
+["PERCENTINODESINUSE", "0"]
+["UPLOADATTEMPT", "1"]
+["ACQUISUITEVERSION", "v02.11.0814"]
+["USRVERSION", "v02.11.0814"]
+["ROOTVERSION", "v02.11.0814"]
+["KERNELVERSION", "2.6.28.10-r1.89--g39f0aec"]
+["MODE", "STATUS"]
+["controller", "home"]
+["action", "acquisuite"]
+acquisuite called with MODE : STATUS
+Rendered inline template (16.3ms)
+Completed 200 OK in 80ms (Views: 79.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/home/acquisuite" for 67.198.27.160 at 2011-11-30 15:53:06 +0530
+  Processing by HomeController#acquisuite as HTML
+  Parameters: {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"[FILTERED]", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"3", "MODBUSDEVICENAME"=>"Echoic Facility", "MODBUSDEVICETYPE"=>"Watt Node Energy Meter", "MODBUSDEVICETYPENUMBER"=>"2", "MODBUSDEVICECLASS"=>"4020", "MD5CHECKSUM"=>"e83d3e6df132a719c3539e124b1682dc", "FILESIZE"=>"214", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x945230c @original_filename="mb-003.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-003.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1798wpc>>}
+acquisuite() called with params {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"3", "MODBUSDEVICENAME"=>"Echoic Facility", "MODBUSDEVICETYPE"=>"Watt Node Energy Meter", "MODBUSDEVICETYPENUMBER"=>"2", "MODBUSDEVICECLASS"=>"4020", "MD5CHECKSUM"=>"e83d3e6df132a719c3539e124b1682dc", "FILESIZE"=>"214", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x945230c @original_filename="mb-003.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-003.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1798wpc>>, "controller"=>"home", "action"=>"acquisuite"}
+["SENDDATATRACE", "YES"]
+["MODE", "LOGFILEUPLOAD"]
+["SERIALNUMBER", "001EC60009D2"]
+["PASSWORD", ""]
+["LOOPNAME", "001EC60009D2"]
+["MODBUSIP", "127.0.0.1"]
+["MODBUSPORT", "502"]
+["MODBUSDEVICE", "3"]
+["MODBUSDEVICENAME", "Echoic Facility"]
+["MODBUSDEVICETYPE", "Watt Node Energy Meter"]
+["MODBUSDEVICETYPENUMBER", "2"]
+["MODBUSDEVICECLASS", "4020"]
+["MD5CHECKSUM", "e83d3e6df132a719c3539e124b1682dc"]
+["FILESIZE", "214"]
+["FILETIME", "2011-11-30 10:30:03"]
+["LOGFILE", #<ActionDispatch::Http::UploadedFile:0x945230c @original_filename="mb-003.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-003.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1798wpc>>]
+["controller", "home"]
+["action", "acquisuite"]
+acquisuite called with MODE : LOGFILEUPLOAD
+process_logfile_upload called
+process_logfile_upload if part
+public/data/mb-003.4ED605A9_4.log.gz
+Rendered inline template (0.4ms)
+Completed 200 OK in 4237ms (Views: 0.9ms | ActiveRecord: 6.2ms)
+
+
+Started POST "/home/acquisuite" for 67.198.27.160 at 2011-11-30 15:53:11 +0530
+  Processing by HomeController#acquisuite as HTML
+  Parameters: {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"[FILTERED]", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"7", "MODBUSDEVICENAME"=>"Echoic HVAC", "MODBUSDEVICETYPE"=>"Watt Node Energy Meter", "MODBUSDEVICETYPENUMBER"=>"2", "MODBUSDEVICECLASS"=>"4020", "MD5CHECKSUM"=>"5696f915dae30cdb74428ea325af0260", "FILESIZE"=>"219", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x86aad44 @original_filename="mb-007.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-007.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1rhm5d5>>}
+acquisuite() called with params {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"7", "MODBUSDEVICENAME"=>"Echoic HVAC", "MODBUSDEVICETYPE"=>"Watt Node Energy Meter", "MODBUSDEVICETYPENUMBER"=>"2", "MODBUSDEVICECLASS"=>"4020", "MD5CHECKSUM"=>"5696f915dae30cdb74428ea325af0260", "FILESIZE"=>"219", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x86aad44 @original_filename="mb-007.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-007.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1rhm5d5>>, "controller"=>"home", "action"=>"acquisuite"}
+["SENDDATATRACE", "YES"]
+["MODE", "LOGFILEUPLOAD"]
+["SERIALNUMBER", "001EC60009D2"]
+["PASSWORD", ""]
+["LOOPNAME", "001EC60009D2"]
+["MODBUSIP", "127.0.0.1"]
+["MODBUSPORT", "502"]
+["MODBUSDEVICE", "7"]
+["MODBUSDEVICENAME", "Echoic HVAC"]
+["MODBUSDEVICETYPE", "Watt Node Energy Meter"]
+["MODBUSDEVICETYPENUMBER", "2"]
+["MODBUSDEVICECLASS", "4020"]
+["MD5CHECKSUM", "5696f915dae30cdb74428ea325af0260"]
+["FILESIZE", "219"]
+["FILETIME", "2011-11-30 10:30:03"]
+["LOGFILE", #<ActionDispatch::Http::UploadedFile:0x86aad44 @original_filename="mb-007.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-007.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-1rhm5d5>>]
+["controller", "home"]
+["action", "acquisuite"]
+acquisuite called with MODE : LOGFILEUPLOAD
+process_logfile_upload called
+process_logfile_upload if part
+public/data/mb-007.4ED605A9_4.log.gz
+Rendered inline template (0.4ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/home/acquisuite" for 67.198.27.160 at 2011-11-30 15:53:13 +0530
+  Processing by HomeController#acquisuite as HTML
+  Parameters: {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"[FILTERED]", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"250", "MODBUSDEVICENAME"=>"Internal I/O", "MODBUSDEVICETYPE"=>"Obvius, A8812, Internal I/O", "MODBUSDEVICETYPENUMBER"=>"48", "MODBUSDEVICECLASS"=>"27", "MD5CHECKSUM"=>"2160eb9a660b3b05f0d4fabf2afc598e", "FILESIZE"=>"48", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x8651730 @original_filename="mb-250.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-250.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-12f9nrk>>}
+acquisuite() called with params {"SENDDATATRACE"=>"YES", "MODE"=>"LOGFILEUPLOAD", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"", "LOOPNAME"=>"001EC60009D2", "MODBUSIP"=>"127.0.0.1", "MODBUSPORT"=>"502", "MODBUSDEVICE"=>"250", "MODBUSDEVICENAME"=>"Internal I/O", "MODBUSDEVICETYPE"=>"Obvius, A8812, Internal I/O", "MODBUSDEVICETYPENUMBER"=>"48", "MODBUSDEVICECLASS"=>"27", "MD5CHECKSUM"=>"2160eb9a660b3b05f0d4fabf2afc598e", "FILESIZE"=>"48", "FILETIME"=>"2011-11-30 10:30:03", "LOGFILE"=>#<ActionDispatch::Http::UploadedFile:0x8651730 @original_filename="mb-250.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-250.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-12f9nrk>>, "controller"=>"home", "action"=>"acquisuite"}
+["SENDDATATRACE", "YES"]
+["MODE", "LOGFILEUPLOAD"]
+["SERIALNUMBER", "001EC60009D2"]
+["PASSWORD", ""]
+["LOOPNAME", "001EC60009D2"]
+["MODBUSIP", "127.0.0.1"]
+["MODBUSPORT", "502"]
+["MODBUSDEVICE", "250"]
+["MODBUSDEVICENAME", "Internal I/O"]
+["MODBUSDEVICETYPE", "Obvius, A8812, Internal I/O"]
+["MODBUSDEVICETYPENUMBER", "48"]
+["MODBUSDEVICECLASS", "27"]
+["MD5CHECKSUM", "2160eb9a660b3b05f0d4fabf2afc598e"]
+["FILESIZE", "48"]
+["FILETIME", "2011-11-30 10:30:03"]
+["LOGFILE", #<ActionDispatch::Http::UploadedFile:0x8651730 @original_filename="mb-250.4ED605A9_4.log.gz", @content_type="application/octet-stream;", @headers="Content-Disposition: form-data; name=\"LOGFILE\"; filename=\"/var/log/modbus/mb-250.4ED605A9_4.log.gz\"\r\nContent-Type: application/octet-stream;\r\n", @tempfile=#<File:/tmp/RackMultipart20111130-28872-12f9nrk>>]
+["controller", "home"]
+["action", "acquisuite"]
+acquisuite called with MODE : LOGFILEUPLOAD
+process_logfile_upload called
+process_logfile_upload if part
+public/data/mb-250.4ED605A9_4.log.gz
+Rendered inline template (0.4ms)
+Completed 200 OK in 7ms (Views: 0.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/home/acquisuite" for 67.198.27.160 at 2011-11-30 15:53:14 +0530
+  Processing by HomeController#acquisuite as HTML
+  Parameters: {"SENDDATATRACE"=>"YES", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"[FILTERED]", "LOOPNAME"=>"001EC60009D2", "ACQUISUITEVERSION"=>"v02.11.0814", "USRVERSION"=>"v02.11.0814", "ROOTVERSION"=>"v02.11.0814", "KERNELVERSION"=>"2.6.28.10-r1.89--g39f0aec", "MODE"=>"CONFIGFILEMANIFEST"}
+acquisuite() called with params {"SENDDATATRACE"=>"YES", "SERIALNUMBER"=>"001EC60009D2", "PASSWORD"=>"", "LOOPNAME"=>"001EC60009D2", "ACQUISUITEVERSION"=>"v02.11.0814", "USRVERSION"=>"v02.11.0814", "ROOTVERSION"=>"v02.11.0814", "KERNELVERSION"=>"2.6.28.10-r1.89--g39f0aec", "MODE"=>"CONFIGFILEMANIFEST", "controller"=>"home", "action"=>"acquisuite"}
+["SENDDATATRACE", "YES"]
+["SERIALNUMBER", "001EC60009D2"]
+["PASSWORD", ""]
+["LOOPNAME", "001EC60009D2"]
+["ACQUISUITEVERSION", "v02.11.0814"]
+["USRVERSION", "v02.11.0814"]
+["ROOTVERSION", "v02.11.0814"]
+["KERNELVERSION", "2.6.28.10-r1.89--g39f0aec"]
+["MODE", "CONFIGFILEMANIFEST"]
+["controller", "home"]
+["action", "acquisuite"]
+acquisuite called with MODE : CONFIGFILEMANIFEST
+process_manifest called
+Rendered inline template (0.2ms)
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/home/charts" for 192.168.10.250 at 2011-11-30 15:53:32 +0530
+  Processing by HomeController#charts as HTML
+Rendered home/charts.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 2001ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+
+
+
+Started GET "/home/charts" for 192.168.10.250 at 2011-11-30 15:53:38 +0530
+  Processing by HomeController#charts as HTML
+Rendered home/charts.html.erb within layouts/application (14.2ms)
+Completed 500 Internal Server Error in 1811ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-11-30 15:53:43 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 4ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+
+
+
+Started GET "/home/charts" for 192.168.10.250 at 2011-11-30 15:53:51 +0530
+  Processing by HomeController#charts as HTML
+Rendered home/charts.html.erb within layouts/application (19.3ms)
+Completed 500 Internal Server Error in 2172ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+
+
+
+Started GET "/home/charts" for 192.168.10.250 at 2011-11-30 15:55:29 +0530
+  Processing by HomeController#charts as HTML
+Redirected to http://122.166.127.116:3001/home/login
+Completed 302 Found in 2ms
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-11-30 15:55:29 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.6ms)
+Completed 500 Internal Server Error in 1ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+
+
+
+Started GET "/favicon.ico" for 192.168.10.250 at 2011-11-30 15:55:30 +0530
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+
+
+
+Started GET "/favicon.ico" for 192.168.10.250 at 2011-11-30 15:55:30 +0530
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+
+
+
+Started GET "/favicon.ico" for 192.168.10.250 at 2011-11-30 15:55:31 +0530
+
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+
+
+
+Started GET "/home/charts" for 192.168.10.250 at 2011-11-30 15:56:09 +0530
+  Processing by HomeController#charts as HTML
+Redirected to http://122.166.127.116:3001/home/login
+Completed 302 Found in 1ms
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-11-30 15:56:09 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 2ms
+
+ActionView::Template::Error (application.css isn't precompiled):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
+

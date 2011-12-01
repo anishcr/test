@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Energy Consumption');
+        data.addColumn('number', 'kWH');
+        data.addRows(2);
+        data.setValue(0, 0, 'Device 1 (11 kWH)');
+        data.setValue(0, 1, 11);
+        data.setValue(1, 0, 'Device 2 (2 kWH)');
+        data.setValue(1, 1, 2);
+
+        var chart = new google.visualization.PieChart(document.getElementById('pie_chart_div'));
+        chart.draw(data, {width: 600, height: 300, title: 'Energy Consumption for last 24 hours'});
+      }
+    </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+        data.addColumn('number', 'Device 1');
+        data.addColumn('number', 'Device 2');
+        data.addRows(7);
+        data.setValue(0, 0, '4-Nov-11');
+        data.setValue(0, 1, 1000);
+        data.setValue(0, 2, 400);
+        data.setValue(1, 0, '5-Nov-11');
+        data.setValue(1, 1, 1170);
+        data.setValue(1, 2, 460);
+        data.setValue(2, 0, '6-Nov-11');
+        data.setValue(2, 1, 660);
+        data.setValue(2, 2, 1120);
+        data.setValue(3, 0, '7-Nov-11');
+        data.setValue(3, 1, 1030);
+        data.setValue(3, 2, 540);
+        data.setValue(4, 0, '8-Nov-11');
+        data.setValue(4, 1, 220);
+        data.setValue(4, 2, 330);
+        data.setValue(5, 0, '9-Nov-11');
+        data.setValue(5, 1, 535);
+        data.setValue(5, 2, 160);
+        data.setValue(6, 0, '10-Nov-11');
+        data.setValue(6, 1, 710);
+        data.setValue(6, 2, 350);
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('column_chart_div'));
+        chart.draw(data, {width: 900, height: 300, title: 'Energy consumption (last 7 days)',
+                          hAxis: {title: 'Date', titleTextStyle: {color: 'black'}},
+                          vAxes:[{title:'kWH',textStyle:{color: 'black'}}]
+                         });
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="pie_chart_div"></div>
+    <div id="column_chart_div"></div>
+  </body>
+</html>

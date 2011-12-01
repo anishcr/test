@@ -1,0 +1,3 @@
+<% @devices.each do |device| %>
+  <%= "#{device.manifest_file_name},#{device.get_manifest_crc},#{device.get_manifest_timestamp}\n" %>
+<% end %>

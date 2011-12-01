@@ -1,0 +1,13 @@
+<h1>File Upload</h1>
+<%= form_tag '/home/acquisuite', :multipart => true do %>
+<div>
+  <label for="Mode" >Mode:</label>
+  <%= text_field_tag :MODE, "CONFIGFILEUPLOAD" %>
+</div>
+<p><label for="upload_file">Select Log File</label>
+<%= file_field '_FILES', 'LOGFILE' %></p>
+<%= submit_tag "Upload" %>
+<p><label for="upload_file">Select Config File</label>
+<%= file_field '_FILES', 'CONFIGFILE' %></p>
+<%= submit_tag "Upload" %>
+<% end %>

@@ -1,0 +1,218 @@
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Energy Consumption');
+        data.addColumn('number', 'kWH');
+        <%= "data.addRows(#{@devices.length});" %>
+        <% i = 0 %>
+        <% @devices.each do |device| %>
+          <%= "data.setValue(#{i}, 0, '#{device.name} (#{@energy_consumption_24_hour_map[device.id]} kWh)');" %>
+          <%= "data.setValue(#{i}, 1, #{@energy_consumption_24_hour_map[device.id]});" %>
+          <% i = i + 1 %>
+        <% end %>
+        DrawPieChart('pie_chart_div', data, 680, 300, '');
+      }
+    </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Date');
+
+        <% @devices.each do |device| %>
+          <%= "data.addColumn('number', '#{device.name}');" %>
+        <% end %>
+        <%= "data.addRows(#{@num_7_day_rows});" %>
+        <% i = 0 -%>
+        <% @last_7_day_time.each do |time| %>
+          <% day = time.strftime("%d/%b") %>
+          <%= "data.setValue(#{i}, 0, '#{day}');" %>
+          <% total_kwh = 0.0 %>
+          <% total_cost = 0.0 %>
+          <% j = 1 %>
+          <% @devices.each do |device| %>
+            <% kwh = @energy_consumption_7_day_map[device.id][time]; total_kwh = total_kwh + kwh %>
+            <% cost = (kwh * 0.10).round(2) %>
+            <%= "data.setValue(#{i}, #{j}, #{kwh});" %>
+            <%= "data.setFormattedValue(#{i}, #{j}, '#{kwh}kWh ($#{cost})');" %>
+            <% j = j + 1%>
+          <% end %>
+          <% total_cost = (total_kwh * 0.10).round(2) %>
+          <%= "data.setFormattedValue(#{i}, 0, '#{day}($#{total_cost})');" %>
+          <% i = i + 1 %>
+        <% end %>
+
+        DrawCoulmnChart('column_chart_div', data, 680, 400, '', 'Date', 'kWh');
+        }
+      </script>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+
+        <% @devices.each do |device| %>
+          <%= "data.addColumn('number', '#{device.name}');" %>
+        <% end %>
+
+        <%= "data.addRows(#{@num_24_hour_rows});" %>
+
+        <% i = 0 -%>
+        <% @last_24_hour_time.each do |time| %>
+          <% day = time.strftime("%H:%M") %>
+          <%= "data.setValue(#{i}, 0, '#{day}');" %>
+          <% j = 1 %>
+          <% @devices.each do |device| %>
+            <% data = @pf_map[device.id][time] %>
+            <% if data != nil %>
+              <%= "data.setValue(#{i}, #{j}, #{data});" %>
+            <% end %>
+            <% j = j + 1%>
+          <% end %>
+          <% time = time + @interval_24_hour.minutes %>
+          <% i = i + 1 %>
+        <% end %>
+        DrawLineChart('power_factor_chart_div', data, 680, 400, '', '', 'Power Factor', 2, true, 30);
+        }
+      </script>
+      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+      <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', '');
+
+        <% @devices.each do |device| %>
+          <%= "data.addColumn('number', '#{device.name}');" %>
+        <% end %>
+
+        <%= "data.addRows(#{@num_24_hour_rows});" %>
+
+        <% i = 0 -%>
+        <% @last_24_hour_time.each do |time| %>
+          <% day = time.strftime("%H:%M") %>
+          <%= "data.setValue(#{i}, 0, '#{day}');" %>
+          <% j = 1 %>
+          <% @devices.each do |device| %>
+            <% data = @pwr_demand_24_hour_map[device.id][time] %>
+            <% if data != nil %>
+              <%= "data.setValue(#{i}, #{j}, #{data / 1000.0});" %>
+            <% end %>
+            <% j = j + 1%>
+          <% end %>
+          <% time = time + @interval_24_hour.minutes %>
+          <% i = i + 1 %>
+        <% end %>
+
+        DrawLineChart('24_power_demand_chart_div', data, 680, 400, '', '', 'kW', 2, true, 30);
+        }
+      </script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', '');
+
+      <% @devices.each do |device| %>
+        <%= "data.addColumn('number', '#{device.name}');" %>
+      <% end %>
+
+      <%= "data.addRows(#{@num_7_day_rows});" %>
+
+      <% i = 0 -%>
+      <% @last_7_day_time.each do |time| %>
+        <% day = time.strftime("%d/%b") %>
+        <%= "data.setValue(#{i}, 0, '#{day}');" %>
+        <% j = 1 %>
+        <% @devices.each do |device| %>
+          <% data = @pwr_demand_7_day_map[device.id][time] %>
+          <% if data != nil %>
+            <%= "data.setValue(#{i}, #{j}, #{data / 1000.0});" %>
+          <% end %>
+          <% j = j + 1%>
+        <% end %>
+        <% time = time + @interval_7_day.days %>
+        <% i = i + 1 %>
+      <% end %>
+
+      DrawLineChart('7_power_demand_chart_div', data, 680, 400, '', '', 'kW', 1, false, 0);
+      }
+    </script>
+
+    <div class="right">
+      <% if @display_energy == true %>
+        <div id="section_holder">
+          <div id="top_section_holder">
+            <div id="top_left"></div>
+            <div id="top_center">
+            <%= "Energy Consumption in kWh for the last 24 hours #{@display_from_to}" %>
+            </div>
+            <div id="top_right"></div>
+          </div>
+          <div id="section_content_holder">
+            <div id="pie_chart_div"></div>
+          </div>
+        </div>
+        <div id="section_holder">
+          <div id="top_section_holder">
+            <div id="top_left"></div>
+            <div id="top_center">Energy consumption for the last 7 days</div>
+            <div id="top_right"></div>
+          </div>
+          <div id="section_content_holder">
+            <div id="column_chart_div"></div>
+          </div>
+        </div>
+      <% end %>
+      <% if @display_power_factor == true %>
+        <div id="section_holder">
+          <div id="top_section_holder">
+            <div id="top_left"></div>
+            <div id="top_center">
+            <%= "Power Factor for the last 24 hours #{@display_from_to}" %>
+            </div>
+            <div id="top_right"></div>
+          </div>
+          <div id="section_content_holder">
+            <div id="power_factor_chart_div"></div>
+          </div>
+        </div>
+      <% end %>
+      <% if @display_power_demand == true %>
+        <div id="section_holder">
+          <div id="top_section_holder">
+            <div id="top_left"></div>
+            <div id="top_center">
+            <%= "Power Demand (kW) for the last 24 hours #{@display_from_to}" %>
+            </div>
+            <div id="top_right"></div>
+          </div>
+          <div id="section_content_holder">
+            <div id="24_power_demand_chart_div"></div>
+          </div>
+        </div>
+        <div id="section_holder">
+          <div id="top_section_holder">
+            <div id="top_left"></div>
+            <div id="top_center">Demand (kW) for last 7 days</div>
+            <div id="top_right"></div>
+          </div>
+          <div id="section_content_holder">
+            <div id="7_power_demand_chart_div"></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
