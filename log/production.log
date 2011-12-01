@@ -268,3 +268,160 @@ ActionView::Template::Error (application.css isn't precompiled):
     8: <script>
   app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___1052498016__653223358'
 
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 12:54:42 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (16.7ms)
+Compiled application.css  (1ms)  (pid 14519)
+Compiled vendor.css  (0ms)  (pid 14519)
+Completed 500 Internal Server Error in 190ms
+
+ActionView::Template::Error (Operation not permitted - /home/anish/echoic_demo/tmp/cache/assets/D45/0D0/sprockets%2F774c6464ffd6bfd8c70ce7236d3202d3):
+    2: <html>
+    3: <head>
+    4:   <title>Echoic</title>
+    5:   <%= stylesheet_link_tag    "application", "style", "jquery-ui" %>
+    6:   <%= javascript_include_tag "application", "jquery-1.6.4.min", "jquery-ui-1.8.16.custom.min" %>
+    7: 
+    8: <script>
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb___217019031_98040730'
+
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 12:57:34 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (16.6ms)
+Compiled application.css  (1ms)  (pid 14551)
+Compiled vendor.css  (0ms)  (pid 14551)
+Compiled home.css  (518ms)  (pid 14551)
+Compiled jquery-ui.css  (0ms)  (pid 14551)
+Compiled style.css  (0ms)  (pid 14551)
+Compiled application.js  (3ms)  (pid 14551)
+Compiled jquery.js  (11ms)  (pid 14551)
+Compiled jquery_ujs.js  (15ms)  (pid 14551)
+Compiled jquery-ui.js  (29ms)  (pid 14551)
+Compiled home.js  (102ms)  (pid 14551)
+Compiled jquery-1.6.4.min.js  (1ms)  (pid 14551)
+Compiled jquery-latest.pack.js  (1ms)  (pid 14551)
+Compiled jquery-ui-1.8.16.custom.min.js  (1ms)  (pid 14551)
+Compiled modal.js  (0ms)  (pid 14551)
+Completed 200 OK in 19200ms (Views: 19199.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 12:58:30 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 13:02:28 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 13:03:18 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 13:03:37 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home/run_report" for 192.168.10.250 at 2011-12-01 13:03:57 +0530
+  Processing by HomeController#run_report as HTML
+Rendered home/run_report.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 563ms (Views: 9.4ms | ActiveRecord: 295.3ms)
+
+
+Started GET "/assets/application-21d6456296c01e3c8bb5aa0959db6159.css" for 192.168.10.250 at 2011-12-01 13:03:58 +0530
+Served asset /application-21d6456296c01e3c8bb5aa0959db6159.css - 200 OK (1ms)
+
+
+Started GET "/assets/jquery-ui-14608f8924118dba594766fbab0250a8.css" for 192.168.10.250 at 2011-12-01 13:03:58 +0530
+Served asset /jquery-ui-14608f8924118dba594766fbab0250a8.css - 200 OK (0ms)
+
+
+Started GET "/assets/application-1f2bfecaa912ec209927f653bde636e5.js" for 192.168.10.250 at 2011-12-01 13:03:58 +0530
+Served asset /application-1f2bfecaa912ec209927f653bde636e5.js - 200 OK (0ms)
+
+
+Started GET "/assets/style-c06bf76c0ba37f5152f85822c0285279.css" for 192.168.10.250 at 2011-12-01 13:03:58 +0530
+Served asset /style-c06bf76c0ba37f5152f85822c0285279.css - 200 OK (0ms)
+
+
+Started GET "/assets/jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js" for 192.168.10.250 at 2011-12-01 13:03:58 +0530
+Served asset /jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js"):
+  
+
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js" for 192.168.10.250 at 2011-12-01 13:04:03 +0530
+Served asset /jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js"):
+  
+
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 13:05:14 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 102ms (Views: 101.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js" for 192.168.10.250 at 2011-12-01 13:05:14 +0530
+Served asset /jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js - 404 Not Found (2ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jquery-1.6.4.min-15aa889681b42266c74a6bb1d634024b.js"):
+  
+
+
+
+Started GET "/assets/jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js" for 192.168.10.250 at 2011-12-01 13:05:14 +0530
+Served asset /jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js - 404 Not Found (1ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/jquery-ui-1.8.16.custom.min-2b432ef5545e6620f94e7638b7574058.js"):
+  
+
+
+
+Started GET "/assets/pageBg.jpg" for 192.168.10.250 at 2011-12-01 13:05:15 +0530
+Served asset /pageBg.jpg - 200 OK (3ms)
+
+
+Started GET "/assets/footerBg.jpg" for 192.168.10.250 at 2011-12-01 13:05:15 +0530
+Served asset /footerBg.jpg - 200 OK (3ms)
+
+
+Started GET "/assets/logo-ad188a89c077143714fbfa25e7549633.png" for 192.168.10.250 at 2011-12-01 13:05:20 +0530
+Served asset /logo-ad188a89c077143714fbfa25e7549633.png - 200 OK (0ms)
+
+
+Started GET "/assets/form_selectBg.jpg" for 192.168.10.250 at 2011-12-01 13:05:20 +0530
+Served asset /form_selectBg.jpg - 200 OK (3ms)
+
+
+Started GET "/assets/buttonBg.png" for 192.168.10.250 at 2011-12-01 13:05:39 +0530
+Served asset /buttonBg.png - 200 OK (3ms)
+
+
+Started GET "/assets/form_selectBg.jpg" for 192.168.10.250 at 2011-12-01 13:06:00 +0530
+Served asset /form_selectBg.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/home/login" for 192.168.10.250 at 2011-12-01 13:07:00 +0530
+  Processing by HomeController#login as HTML
+Rendered home/login.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 4ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/form_selectBg.jpg" for 192.168.10.250 at 2011-12-01 13:07:05 +0530
+Served asset /form_selectBg.jpg - 304 Not Modified (0ms)

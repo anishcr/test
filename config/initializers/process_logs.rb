@@ -131,5 +131,5 @@ scheduler = Rufus::Scheduler.start_new
 
 scheduler.every("5m") do
   puts "cron job process_logs"
-  process_logs()
+#  process_logs()
 end
