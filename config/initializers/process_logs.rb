@@ -96,18 +96,26 @@ end
 
 def process_upload_log(upload_log)
   puts "process_upload_log"
-  #First mark the status as processing
-  upload_log.status = 1
-  upload_log.save
 
-  # first unzip the file and parse it.
-  # then update the watt_node_logs
-  log_str = ""
+  begin
+    #First mark the status as processing
+    upload_log.status = 1
+    upload_log.save
 
-  Zlib::GzipReader.open(upload_log.file_name) {|gz|
-    log_str = gz.read
-  }
-  parse_watt_node_log(upload_log, log_str)
+    # first unzip the file and parse it.
+    # then update the watt_node_logs
+    log_str = ""
+
+    Zlib::GzipReader.open(upload_log.file_name) {|gz|
+      log_str = gz.read
+    }
+    parse_watt_node_log(upload_log, log_str)
+  rescue Exception => exc
+    puts "Exception while processing file #{upload_log.file_name}. Exception: #{exc.message}"
+    upload_log.error_string =  "#{exc.message}"
+    upload_log.save
+  end
+
 end
 
 def process_logs()
@@ -131,5 +139,5 @@ scheduler = Rufus::Scheduler.start_new
 
 scheduler.every("5m") do
   puts "cron job process_logs"
-#  process_logs()
+  process_logs()
 end
